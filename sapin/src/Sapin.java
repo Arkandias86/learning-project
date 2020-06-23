@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Sapin {
@@ -100,7 +103,14 @@ public class Sapin {
 
 
     public static void main(String[] args) {
-        int size = 4;
+        int size = 0;
+        System.out.println("Please, enter the size of the tree you want and press enter:");
+        try (BufferedReader br =
+                     new BufferedReader(new InputStreamReader(System.in))) {
+            size = Integer.parseInt(br.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Sapin test = new Sapin();
         test.tree(size);
