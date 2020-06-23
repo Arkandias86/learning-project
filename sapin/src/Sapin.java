@@ -45,11 +45,19 @@ public class Sapin {
     //display the trunk of the tree
     public void trunk(int size, int middle){
         StringBuilder trunk_line = new StringBuilder();
+        int sides = 0;
+        int first = 0;
+        int last = 0;
 
         if (size % 2 != 0){ //when odd size there are equals amount of pipes around the middle one
-            int sides = size / 2;
-            int first = middle - sides;
-            int last = middle + sides;
+            sides = size / 2;
+            first = middle - sides;
+            last = middle + sides;
+        }else{
+            sides = size / 2;
+            first = middle - sides;
+            last = middle + (sides - 1);
+        }
 
             for (int i = 0; i < first; i++){
                 trunk_line.append(" ");
@@ -60,7 +68,7 @@ public class Sapin {
             for (int i = 0; i < size; i++) {
                 System.out.println(trunk_line);
             }
-        }
+
     }
 
     public void tree(int size){
@@ -92,7 +100,7 @@ public class Sapin {
 
 
     public static void main(String[] args) {
-        int size = 3;
+        int size = 4;
 
         Sapin test = new Sapin();
         test.tree(size);
