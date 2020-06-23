@@ -1,14 +1,12 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class Sapin {
-    public ArrayList<Integer> line_number = new ArrayList<>();
-    public int size_previous_line = 7; //we start using it only when there are 2 stages for the tree
 
     //calculate the size of the last line of a given tree size and return it. 0 is treated separatly
     public int calculate_last_line (int input){
+        int size_previous_line = 7; //we start using it only when there are 2 stages for the tree
         int result = 0;
         if ( input == 1)
         {
@@ -56,20 +54,20 @@ public class Sapin {
             sides = size / 2;
             first = middle - sides;
             last = middle + sides;
-        }else{
+        }else{ //when even, choosing to have one more on the left side than the right side
             sides = size / 2;
             first = middle - sides;
             last = middle + (sides - 1);
         }
 
-            for (int i = 0; i < first; i++){
+            for (int i = 0; i < first; i++){ //adding empty spaces
                 trunk_line.append(" ");
             }
             for (int i = first; i <= last; i++) {
-                trunk_line.append("|");
+                trunk_line.append("|"); //constructing the trunk
             }
             for (int i = 0; i < size; i++) {
-                System.out.println(trunk_line);
+                System.out.println(trunk_line); //adding the layers of the trunk
             }
 
     }
@@ -97,7 +95,7 @@ public class Sapin {
                 finish = true;
             }
         }
-        trunk(size, middle);
+        trunk(size, middle); // adding the trunk
     }
 
 
